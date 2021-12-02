@@ -1,0 +1,20 @@
+{
+  "myDegree": [
+    {
+      "degree": {
+        "School": "Rutgers University",
+        "Program/Major": "Computer Science",
+        "Type": "BS",
+        "Year conferred": "2019"
+      }
+    },
+    {
+      "degree": {
+        "School": "Boston University",
+        "Program/Major": "Computer Science",
+        "Type": "MS",
+        "Year conferred": "2022"
+      }
+    }
+  ]
+}
