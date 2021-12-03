@@ -1,14 +1,19 @@
 {
-  "data": [
+  "myDegree": [
     {
-      "degrees": {
-        "bachelors": {
-          "data": {
-            "type": "Bachelors of Arts in French",
-            "institution": "Wellesley College",
-            "date": "1992"
-          }
-        }
+      "degree": {
+        "School": "Rutgers University",
+        "Program/Major": "Computer Science",
+        "Type": "BS",
+        "Year conferred": "2019"
+      }
+    },
+    {
+      "degree": {
+        "School": "Boston University",
+        "Program/Major": "Computer Science",
+        "Type": "MS",
+        "Year conferred": "2022"
       }
     }
   ]
