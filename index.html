@@ -46,19 +46,88 @@
 
         document.getElementById("button"),onclick = () => {
             getDegrees("./src/degrees.json")
+            .then(data => console.log(appendData(data)))
+            .catch(err => console.error(err))
         }
 
-        async function getDegrees(url) {
-            // fetch the url
-            await fetch(url)
-                //get your data here, and check for the response status. If it's not 200, throw an error
-                .then((response) => response.json())
-                .then((data) =>
-                    document.write(
-                        `My first degree was a ${data.data[0].degrees.bachelors.data.type} from ${data.data[0].degrees.bachelors.data.institution} in ${data.data[0].degrees.bachelors.data.date}`
-                    )
-                );
+        // function getDegrees(url) {
+        //     //create new promise
+        //     const myPromise = new Promise((resolve, reject) => {
+        //         let condition = true;
+        //         if(condition) {
+        //             const workDone = 'Promise is resolved successfully.'
+        //             resolve(workDone);
+        //         } else {
+        //             const why = 'Promise is rejected';
+        //             reject(why);
+        //         }
+        //     });
+        //
+        //     // myPromise.then((input) => {
+        //     //     console.log('request successful:', appendData(input));
+        //     // }).catch(err => {
+        //     //     console.error(err);
+        //     // });
+        //
+        // }
+        const getDegrees = (fileName) => {
+          return new Promise(((resolve, reject) => {
+              let condition = true;
+              if(condition) {
+                  const workDone = 'Promise is resolved successfully.'
+                  resolve(workDone);
+              } else {
+                  const why = 'Promise is rejected';
+                  reject(why);
+              }
+          }))
         }
+
+
+
+
+        // append data fetched in table format
+        function appendData(data) {
+
+            // data passed in
+            const degrees = data;
+            // key legends
+            const keys = ["Year conferred", "Type", "School", "Program/Major"];
+
+            // create table properties
+            let table = document.createElement('table');
+            let tableHead = document.createElement('thead');
+            let tableBody = document.createElement('tbody');
+
+            // header row
+            let headerRow = document.createElement('tr');
+            for (let i = 0; i < keys.length; i++) {
+                let cell = document.createElement('th');
+                cell.appendChild(document.createTextNode(keys[i]));
+                headerRow.appendChild(cell);
+            }
+            tableHead.appendChild(headerRow);
+            table.appendChild(tableHead);
+
+            // body rows
+            degrees.forEach(entry => {
+                let row = document.createElement('tr');
+                for (let i = 0; i < keys.length; i++) {
+                    let cell = document.createElement('td');
+                    cell.appendChild(document.createTextNode(entry.degree[keys[i]]));
+                    row.appendChild(cell);
+                }
+                tableBody.appendChild(row);
+            });
+            table.appendChild(tableBody);
+
+            // add table to body
+            table.setAttribute("class", "degrees");
+            document.body.appendChild(table);
+
+            // hide button
+            document.getElementById("button").style.visibility = 'hidden';
+        };
 
 
     </script>
