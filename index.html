@@ -15,27 +15,20 @@
     <!-- Stylesheets -->
     <style>
         body {
-            width: 100%;
-            background: radial-gradient(circle, #4dbd769c 0%, #3c888f93 100%);
-        }
-        .my_degrees {
-            width: 60%;
-            border: 3px solid #000000;
+            font-family: "DM Sans", sans-serif;
+            background-color: #53488d;
+            padding-top: 7em;
+            padding-bottom: 5em;
+            width:70%;
+            margin-left:35%;
+            margin-right:30%;
+            text-align: left;
         }
         .my_degrees th, .my_degrees td {
             border: 1px solid #000000;
             padding: 2px;
         }
-        .my_degrees th {
-            background-color: rgb(204, 0, 0);
-            color: #ffffff;
-        }
-
-        .my_degrees tr:hover {
-            background-color: #dddddd;
-        }
     </style>
-    <!-- Scripts -->
 </head>
 
 <body>
@@ -48,8 +41,8 @@
            getDegrees(url);
         }
 
-        function getDegrees(url) {
-            fetch(url).then(
+        async function getDegrees(url) {
+            await fetch(url).then(
                 function (response) {
                     console.log(response.status);
                     if (!response.ok) {
@@ -91,18 +84,6 @@
             tableHead.appendChild(headerRow);
             table.appendChild(tableHead);
 
-           //  // body rows
-           // for (const entry of Object.keys(degrees)) {
-           //      let row = document.createElement('tr');
-           //      for (let i = 0; i < keys.length; i++) {
-           //          let cell = document.createElement('td');
-           //          cell.appendChild(document.createElement(degrees.quotesArray);
-           //          row.appendChild(cell);
-           //      }
-           //      tableBody.appendChild(row);
-           //  }
-           //  table.appendChild(tableBody);
-
             my_degrees.forEach(entry => {
                 let row = document.createElement('tr');
                 for (let i = 0; i < keys.length; i++) {
@@ -122,51 +103,6 @@
             document.getElementById("button").style.visibility = 'hidden';
         };
 
-        // function getDegrees(url) {
-        //     //create new promise
-        //     const myPromise = new Promise((resolve, reject) => {
-        //         let condition = true;
-        //         if(condition) {
-        //             const workDone = 'Promise is resolved successfully.'
-        //             resolve(workDone);
-        //         } else {
-        //             const why = 'Promise is rejected';
-        //             reject(why);
-        //         }
-        //     });
-        //
-        //     // myPromise.then((input) => {
-        //     //     console.log('request successful:', appendData(input));
-        //     // }).catch(err => {
-        //     //     console.error(err);
-        //     // });
-        //
-        // }
-        // const getDegrees = (fileName) => {
-        //   return new Promise(((resolve, reject) => {
-        //       let condition = true;
-        //       if(condition) {
-        //           const workDone = 'Promise is resolved successfully.'
-        //           resolve(workDone);
-        //       } else {
-        //           const why = 'Promise is rejected';
-        //           reject(why);
-        //       }
-        //   }))
-        // }
-        // function gertJson(url) {
-        //     return new Promise(function(resolve, reject) {
-        //         const req = https.get(url, res => {
-        //           let json = '';
-        //           res.on('data', function(chunk){json += chunk;});
-        //           res.on('end', function (){resolve(JSON.parse(json));});
-        //         });
-        //         req.on('error', function (err){console.log(err)})
-        //     });
-        //
-        // }
-
-
         // let url = 'https://gist.githubusercontent.com/xu842251462/0b5f95af2d4805334a69650bfb165661/raw/2a463b8685759ddf526d17e2975f219c8ea4374f/my_degrees.json'
         // let array = []
         // fetch(url).then(
@@ -178,11 +114,6 @@
         //         array = value
         //     }
         // )
-
-
-
-
-
 
     </script>
 
