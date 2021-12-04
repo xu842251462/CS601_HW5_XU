@@ -33,11 +33,11 @@
 
 <body>
 
-    <button id="button">Click here to see my degrees!</button>
+    <button id="button">Please click here to fetch data of my degrees!</button>
 
     <script>
         document.getElementById("button"),onclick = () => {
-           const url = 'https://gist.githubusercontent.com/xu842251462/0b5f95af2d4805334a69650bfb165661/raw/2a463b8685759ddf526d17e2975f219c8ea4374f/my_degrees.json';
+           const url = 'https://gist.githubusercontent.com/xu842251462/0b5f95af2d4805334a69650bfb165661/raw/5576e021359e72cdf1867cd6ff29633982317e77/my_degrees.json';
            getDegrees(url);
         }
 
@@ -63,9 +63,8 @@
         // append data fetched in table format
         function appendData(inputJson) {
             // data passed in
-            // let degrees = inputJson;
             // let data = JSON.parse(inputJson);
-            let my_degrees = inputJson.my_degrees;
+            let data = inputJson.degrees;
             // key legends
             const keys = ["Year conferred", "Type", "School", "Program/Major"];
 
@@ -84,7 +83,7 @@
             tableHead.appendChild(headerRow);
             table.appendChild(tableHead);
 
-            my_degrees.forEach(entry => {
+            data.forEach(entry => {
                 let row = document.createElement('tr');
                 for (let i = 0; i < keys.length; i++) {
                     let cell = document.createElement('td');
@@ -102,21 +101,7 @@
             // hide button
             document.getElementById("button").style.visibility = 'hidden';
         };
-
-        // let url = 'https://gist.githubusercontent.com/xu842251462/0b5f95af2d4805334a69650bfb165661/raw/2a463b8685759ddf526d17e2975f219c8ea4374f/my_degrees.json'
-        // let array = []
-        // fetch(url).then(
-        //     (value) => {
-        //         console.log(value.json())
-        //     }
-        // ).then(
-        //     (value) => {
-        //         array = value
-        //     }
-        // )
-
     </script>
-
 </body>
 
 </html>
