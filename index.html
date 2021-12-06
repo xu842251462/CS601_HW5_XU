@@ -24,7 +24,7 @@
             margin-right:30%;
             text-align: left;
         }
-        .my_degrees th, .my_degrees td {
+        .degrees th, .degrees td {
             border: 1px solid #000000;
             padding: 2px;
         }
@@ -73,7 +73,7 @@
             let tableHead = document.createElement('thead');
             let tableBody = document.createElement('tbody');
 
-            // header row
+            // create header row
             let headerRow = document.createElement('tr');
             for (let i = 0; i < keys.length; i++) {
                 let cell = document.createElement('th');
@@ -83,6 +83,7 @@
             tableHead.appendChild(headerRow);
             table.appendChild(tableHead);
 
+            //create table, using loop to add every degree from Json
             data.forEach(entry => {
                 let row = document.createElement('tr');
                 for (let i = 0; i < keys.length; i++) {
@@ -95,7 +96,7 @@
             table.appendChild(tableBody);
 
             // add table to body
-            table.setAttribute("class", "my_degrees");
+            table.setAttribute("class", "degrees");
             document.body.appendChild(table);
 
             // hide button
